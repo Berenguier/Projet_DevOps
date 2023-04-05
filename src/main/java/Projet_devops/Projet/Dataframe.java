@@ -21,4 +21,7 @@ public class Dataframe{
 		}
 		
 	}
+	public Object[] getColonne(int i) {
+		return tab[i];
+	}
 }
