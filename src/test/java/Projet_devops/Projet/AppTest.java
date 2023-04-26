@@ -82,10 +82,7 @@ public class AppTest {
 
 		assertTrue(test); 
 	}
-	@Test
-	public void test_git() {
-		assertTrue(false);
-	}
+
 	@Test
 	public void calculDeMax(){
 		Object[][] tab = {{"note",2,13,4,16},{"eleve",'a','b','c','d'}};

@@ -205,8 +205,9 @@ public class Dataframe{
 	/**
 	 * Cette fonction retourne un nouveau dataframe qui contient uniquement la colonne spécifiée par le label2, filtrée en fonction de l'opérateur et de la valeur donnée en entrée.
 	 * @param label2 le label de la colonne à sélectionner dans le dataframe.(la colonne doit contenir que des entiers).
-	 * @param op  l'opérateur de comparaison à utiliser pour filtrer les données de la colonne. Les opérateurs possibles sont "<", "<=", ">", ">=", "==", "!="
+	 * @param op  l'opérateur de comparaison à utiliser pour filtrer les données de la colonne. Les opérateurs possibles sont <, <=, >, >=, ==, !=
 	 * @param valeur la valeur à utiliser pour filtrer les données de la colonne en fonction de l'opérateur spécifié.
+	 * @return dataframe avec les colonnes selectionnées
 	 */
 	public Dataframe select_colonne_label2(String label2,String op,int valeur ) {
 		int m = 0;
@@ -294,6 +295,7 @@ public class Dataframe{
 	/**
 	 * Cette fonction calcule la moyenne des valeurs numériques de la colonne spécifiée par le label3 dans le dataframe, et retourne cette valeur moyenne en tant que double.
 	 * @param label3  le label de la colonne à partir de laquelle calculer la moyenne des valeurs numériques(la colonne doit contenir que des entiers)
+	 * @return la moyenne de la colonne 
 	 */
 	public double calculMoyenne(String label3) {
 		int i =0;
@@ -331,7 +333,9 @@ public class Dataframe{
 	/**
 	 * La fonction calcule la valeur minimale des valeurs numériques de la colonne spécifiée par label3 dans le dataframe.La fonction retourne cette valeur minimale en tant que int.
 	 * @param label3 le label de la colonne à partir de laquelle calculer la valeur minimale.(la colonne doit contenir que des entiers).
+	 * @return minimum de la colonne
 	 */
+	
 	public int calculMinimum(String label3) {
 		int i =0;
 		int bInt;
@@ -375,7 +379,9 @@ public class Dataframe{
 	/**
 	 * La fonction calcule la valeur maximale des valeurs numériques de la colonne spécifiée par label3 dans le dataframe.  La fonction retourne cette valeur maximale en tant que int.
 	 * @param label3 le label de la colonne à partir de laquelle calculer la valeur maximale.(la colonne doit contenir que des entiers).
+	 *@return maximum de la colonne
 	 */
+	
 	public int calculMaximum(String label3) {
 		int i =0;
 		int bInt;
@@ -419,6 +425,7 @@ public class Dataframe{
 	/**
 	 * La fonction supprime la première ligne du tableau arr et retourne un nouveau tableau qui ne contient plus la première ligne. Le type de retour de la fonction est un tableau d'objets (Object[]).
 	 * @param arr un tableau d'objets.
+	 * @return tableau sans la premiere ligne
 	 */
 	public static Object[] supprimePremiereLigne(Object[] arr) {
 		Object[] result = new Object[arr.length - 1];
@@ -430,7 +437,9 @@ public class Dataframe{
 	/**
 	 * La fonction calcule la valeur médiane des valeurs numériques de la colonne spécifiée par label3 dans le dataframe.La fonction retourne cette valeur médiane en tant que double.
 	 * @param label3 le label de la colonne à partir de laquelle calculer la valeur médiane. (la colonne doit contenir que des entiers).
+	 * @return la médiane de la colonne
 	 */
+	
 	public double calculMedium(String label3) {
 		int i =0;
 		Object[] colonne = new Object[tab[0].length];
