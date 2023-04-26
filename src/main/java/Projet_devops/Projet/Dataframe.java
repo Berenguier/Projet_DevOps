@@ -212,7 +212,7 @@ public class Dataframe{
 	public Dataframe select_colonne_label2(String label2,String op,int valeur ) {
 		int m = 0;
 		int i =0;
-		while( i < label.length && !(label[i].equals(label2))) {
+		while( i < label.length-1 && !(label[i].equals(label2))) {
 			i++;
 		}
 		if(label[i].equals(label2)){
@@ -273,7 +273,7 @@ public class Dataframe{
 						break;
 					default:
 						System.out.println("Opérateur invalide");
-						break;
+						return null;
 					}
 				}
 				if (m <resultat.length) {

@@ -20,6 +20,18 @@ public class AppTest {
 		}
 		assertTrue(test); 
 	}
+	@Test
+		public void CreerDataframeFichier() throws IOException {
+			Dataframe data = new Dataframe("src/test/java/Projet_devops/Projet/fichier.csv",',', StandardCharsets.UTF_8);
+			boolean test = true;
+			Object[] tab = {"Sexe","M","F","F"};
+			for (int i =0;i<4;i++) {
+			if (!tab[i].equals(data.getColonne(0)[i]))
+				test = false;
+			}
+			assertTrue(test);
+		}
+	
 
 	@Test
 	public void getcolonne() {
@@ -111,5 +123,131 @@ public class AppTest {
 		double med=data.calculMedium("note");
 		assertEquals(8.5, med);
 	}
+	@Test
+	public void TypeIntegerTrue(){
+		Object[][] tab = {{"note",2,13,4,16},{"eleve",'a','b','c','d'}};
+		Dataframe data = new Dataframe(tab[0],tab[1]);
+		Object[] tab2 = {1,2,3};
+		boolean test = data.typeInteger(tab2);
+		assertTrue(test); 
+	}
+	@Test
+	public void TypeIntegerTrue2(){
+		Object[][] tab = {{"note",2,13,4,16},{"eleve",'a','b','c','d'}};
+		Dataframe data = new Dataframe(tab[0],tab[1]);
+		Object[] tab2 = {"1","2","3"};
+		boolean test = data.typeInteger(tab2);
+		assertTrue(test); 
+	}
+	@Test
+	public void select_colonne_label1(){
+		Object[][] tab = {{"note",2,13,4,16},{"eleve",'a','b','c','d'}};
+		Dataframe data = new Dataframe(tab[0],tab[1]);
+		Object[][] tab2 = {{13,4,16}};
+		Dataframe data2 = new Dataframe(tab2[0]);
+		Dataframe data3=data.select_colonne_label2("note",">",2);
+		boolean test = true;
+		if (data3.getColonne(0)==data3.getColonne(0))
+			test =true;
+		else
+			test =false;
+		assertTrue(test);	
+	}
+	@Test
+	public void select_colonne_label2(){
+		Object[][] tab = {{"note",2,13,4,16},{"eleve",'a','b','c','d'}};
+		Dataframe data = new Dataframe(tab[0],tab[1]);
+		Object[][] tab2 = {{13,16}};
+		Dataframe data2 = new Dataframe(tab2[0]);
+		Dataframe data3=data.select_colonne_label2("note",">=",5);
+		boolean test = true;
+		if (data3.getColonne(0)==data3.getColonne(0))
+			test =true;
+		else
+			test =false;
+		assertTrue(test);	
+	}
+	@Test
+	public void select_colonne_label3(){
+		Object[][] tab = {{"note",2,13,4,16},{"eleve",'a','b','c','d'}};
+		Dataframe data = new Dataframe(tab[0],tab[1]);
+		Object[][] tab2 = {{2}};
+		Dataframe data2 = new Dataframe(tab2[0]);
+		Dataframe data3=data.select_colonne_label2("note","<=",2);
+		boolean test = true;
+		if (data3.getColonne(0)==data3.getColonne(0))
+			test =true;
+		else
+			test =false;
+		assertTrue(test);	
+	}
+	@Test
+	public void select_colonne_label4(){
+		Object[][] tab = {{"note",2,13,4,16},{"eleve",'a','b','c','d'}};
+		Dataframe data = new Dataframe(tab[0],tab[1]);
+		Object[][] tab2 = {{2,4}};
+		Dataframe data2 = new Dataframe(tab2[0]);
+		Dataframe data3=data.select_colonne_label2("note","<",5);
+		boolean test = true;
+		if (data3.getColonne(0)==data3.getColonne(0))
+			test =true;
+		else
+			test =false;
+		assertTrue(test);	
+	}
+	@Test
+	public void select_colonne_label5(){
+		Object[][] tab = {{"note",2,13,4,16},{"eleve",'a','b','c','d'}};
+		Dataframe data = new Dataframe(tab[0],tab[1]);
+		Object[][] tab2 = {{2,13,4,16}};
+		Dataframe data2 = new Dataframe(tab2[0]);
+		Dataframe data3=data.select_colonne_label2("note","!=",0);
+		boolean test = true;
+		if (data3.getColonne(0)==data3.getColonne(0))
+			test =true;
+		else
+			test =false;
+		assertTrue(test);	
+		}
+	@Test
+	public void select_colonne_label6(){
+		Object[][] tab = {{"note",2,13,4,16},{"eleve",'a','b','c','d'}};
+		Dataframe data = new Dataframe(tab[0],tab[1]);
+		Object[][] tab2 = {{16}};
+		Dataframe data2 = new Dataframe(tab2[0]);
+		Dataframe data3=data.select_colonne_label2("note","==",16);
+		boolean test = true;
+		if (data3.getColonne(0)==data3.getColonne(0))
+			test =true;
+		else
+			test =false;
+		assertTrue(test);	
+		}	
+	@Test
+	public void select_colonne_label7(){
+		Object[][] tab = {{"note",2,13,4,16},{"eleve",'a','b','c','d'}};
+		Dataframe data = new Dataframe(tab[0],tab[1]);
+		Dataframe data3=data.select_colonne_label2("note","nop",2);
+		
+		assertNull(data3);
+	}
+	@Test
+	public void select_colonne_label8(){
+		Object[][] tab = {{"note",2,13,4,16},{"eleve",'a','b','c','d'}};
+		Dataframe data = new Dataframe(tab[0],tab[1]);
+		Dataframe data3=data.select_colonne_label2("notesss","==",2);
+		assertNull(data3);
+	}
+	@Test
+	public void select_colonne_label9(){
+		Object[][] tab = {{"note",2,13,4,16},{"eleve",'a','b','c','d'}};
+		Dataframe data = new Dataframe(tab[0],tab[1]);
+		Dataframe data3=data.select_colonne_label("notesss");
+		assertNull(data3);
+	}
+	
 }
+
+
+
 
