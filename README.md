@@ -5,9 +5,9 @@ Notre documentation est disponible <a href="https://berenguier.github.io/Projet_
 
 # Outils
 
-Nous avous utilisé: - Maven pour facilite la gestion du projet, automatiser les tests et vérifier la couverture du code.
-                    - JUnit pour fournir un environnement de test qui facilite l'écriture et l'exécution de tests de manière automatisée. Les tests unitaires permettent                       de vérifier que chaque partie du code fonctionne comme prévu, ce qui permet de réduire les bugs et d'améliorer la qualité du code.
-                    - GitHub comme plateforme de depôt, mais aussi github action et github page.
+Nous avous utilisé:</br> - Maven pour facilite la gestion du projet, automatiser les tests et vérifier la couverture du code.</br>
+                    - JUnit pour fournir un environnement de test qui facilite l'écriture et l'exécution de tests de manière automatisée. Les tests unitaires permettent                       de vérifier que chaque partie du code fonctionne comme prévu, ce qui permet de réduire les bugs et d'améliorer la qualité du code.</br>
+                    - GitHub comme plateforme de depôt, mais aussi github action, github page et des badges.</br>
 # Workflow
 
 Nous avons utilisé un workflow en feature : la branche main pour les version stable, la branche dev sur laquelle nous pouvions merge les features.
