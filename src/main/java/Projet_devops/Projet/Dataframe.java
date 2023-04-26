@@ -41,6 +41,7 @@ public class Dataframe{
 	            label[j] = tab[j][0];
 	        }
 	}
+	// affiche le contenue de tout le dataframe
 	public void print() {
 		int n = tab[0].length;
 		for (int j=0;j<n;j++) {
@@ -52,7 +53,7 @@ public class Dataframe{
 			System.out.println("");
 		}
 
-	}
+	} //affiche les nb premieres lignes du dataframe
 	public void afficher_premiere_lignes(int nb) {
 		for (int i=1;i<=nb;i++) {
 		for (int j=0;j<tab.length;j++) {
@@ -63,7 +64,7 @@ public class Dataframe{
 		}
 			System.out.println("");
 	
-	}
+	} //affiche les nb dernieres lignes du dataframe
 	public void afficher_derniere_lignes(int nb) {
 		for (int i=nb;i>=1;i--) {
 			for (int j=0;j<tab.length;j++){
@@ -74,7 +75,7 @@ public class Dataframe{
 		}
 		}
 
-		
+	//creer un nouveau dataframe à partir des indices de lignes donnés en arguments
 	public Dataframe selectLignes(int...args) {
 		 Object[][] liste  = new Object[args.length+1][tab.length];
 		 Object[][] liste2  = new Object[tab.length][args.length+1];
@@ -90,6 +91,7 @@ public class Dataframe{
 	        Dataframe select = new Dataframe(liste2);
 	        return select;  
     }
+	//creer un nouveau dataframe à partir des indices de colonnes donnés en arguments
 	public Dataframe selectColonne(int...args) {
         Object[][] liste  = new Object[args.length][tab[0].length];
         for (int i =0;i<args.length;i++) {
@@ -99,7 +101,7 @@ public class Dataframe{
         return select;
     }
 	
-	
+	// creer un nouveau dataframe à partir des labels de colonnes donnés en arguments
 	public Dataframe select_colonne_label(String...args) {
 		 int[] indexes = new int[args.length];
 		    int idx = 0;
@@ -121,6 +123,7 @@ public class Dataframe{
 		    	return null;
 		    }
     }
+	// retourne la ligne i
 	public Object[] getLigne(int i) {
         Object[] ligne = new Object[tab.length];
         for (int j = 0;j<tab.length;j++) {
@@ -128,6 +131,7 @@ public class Dataframe{
         }
         return ligne;
     }
+	// retourne la colonne i
 	public Object[] getColonne(int i) {
 		return tab[i];
 	}	
