@@ -98,12 +98,14 @@ public class Dataframe{
         Dataframe select = new Dataframe(liste);
         return select;
     }
+	
+	
 	public Dataframe select_colonne_label(String...args) {
 		 int[] indexes = new int[args.length];
 		    int idx = 0;
-		    for (int i = 0; i < tab[0].length; i++) {
+		    for (int i = 0; i < tab.length; i++) {
 		        for (String label : args) {
-		            if (tab[0][i].equals(label)) {
+		            if (tab[i][0].equals(label)) {
 		                indexes[idx++] = i;
 		            }
 		        }
