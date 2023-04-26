@@ -53,20 +53,25 @@ public class Dataframe{
 		}
 
 	}
-	public void afficher_premiere_lignes() {
+	public void afficher_premiere_lignes(int nb) {
+		for (int i=1;i<=nb;i++) {
 		for (int j=0;j<tab.length;j++) {
-				System.out.print(tab[j][0]);
+				System.out.print(tab[j][i]);
 				System.out.print(" ");
+			}
+		System.out.println("");
 		}
 			System.out.println("");
 	
 	}
-	public void afficher_derniere_lignes() {
-			for (int j=0;j<tab.length-1;j++){
-				System.out.print(tab[j][tab[0].length-1]);
+	public void afficher_derniere_lignes(int nb) {
+		for (int i=nb;i>=1;i--) {
+			for (int j=0;j<tab.length;j++){
+				System.out.print(tab[j][tab[0].length-i]);
 				System.out.print(" ");
 		}
 			System.out.println("");
+		}
 		}
 
 		
