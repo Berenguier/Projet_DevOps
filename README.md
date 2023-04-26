@@ -10,7 +10,7 @@ Nous avous utilisé: - Maven pour facilite la gestion du projet, automatiser les
                     - GitHub comme plateforme de depôt, mais aussi github action et github page.
 # Workflow
 
-Nous avons utilisé un workflow en feature : la branche main pour les version stable, la branche dev sur laquelle nous pouvions merge les features
+Nous avons utilisé un workflow en feature : la branche main pour les version stable, la branche dev sur laquelle nous pouvions merge les features.
 
 # Feedback
 
