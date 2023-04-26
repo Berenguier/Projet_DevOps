@@ -13,10 +13,19 @@ import java.util.stream.Collectors;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-
+/**
+ * Bibliothèque pour traiter des données de tout type
+ * @author Lucas Bouchra
+ *
+ */
 public class Dataframe{
+
 	Object[][] tab;
 	Object[] label ;
+	/**
+	 * créer un nouveau dataframe
+	 * @param args un tableau par colonne, le premier élémetns de chaque tableau est le label de la colonne
+	 */
 	Dataframe(Object[]...args){
 		tab = args;
 		label = new Object[tab.length];
@@ -24,7 +33,13 @@ public class Dataframe{
             label[j] = tab[j][0];
         }
 	}
-
+	/**
+	 * constructeur du dataframe avec un fichier
+	 * @param f path du fichier
+	 * @param c caractère séparateur dans le fichier
+	 * @param charset type 
+	 * @throws IOException
+	 */
 	Dataframe(String f , char c , Charset charset) throws IOException{
 		Object[][] temp;
 		temp = Files.lines(Paths.get(f),charset)
@@ -41,8 +56,11 @@ public class Dataframe{
 	            label[j] = tab[j][0];
 	        }
 	}
-	// affiche le contenue de tout le dataframe
-	public void print() {
+	/** 
+	* affiche le contenue de tout le dataframe
+	*/
+	public void print() { 
+
 		int n = tab[0].length;
 		for (int j=0;j<n;j++) {
 			for (int i =0;i<tab.length;i++) {
@@ -53,7 +71,11 @@ public class Dataframe{
 			System.out.println("");
 		}
 
-	} //affiche les nb premieres lignes du dataframe
+	} 
+	/**
+	* affiche les nb premieres lignes du dataframe
+	* @param nb nombre de lignes à afficher
+	*/
 	public void afficher_premiere_lignes(int nb) {
 		for (int i=1;i<=nb;i++) {
 		for (int j=0;j<tab.length;j++) {
@@ -64,18 +86,26 @@ public class Dataframe{
 		}
 			System.out.println("");
 	
-	} //affiche les nb dernieres lignes du dataframe
+	} 
+	/**
+	* affiche les dernieres lignes du dataframe
+	* @param nb nombre de lignes à afficher
+	**/
 	public void afficher_derniere_lignes(int nb) {
 		for (int i=nb;i>=1;i--) {
 			for (int j=0;j<tab.length;j++){
 				System.out.print(tab[j][tab[0].length-i]);
 				System.out.print(" ");
-		}
+			}
 			System.out.println("");
 		}
-		}
+	}
 
-	//creer un nouveau dataframe à partir des indices de lignes donnés en arguments
+	/**
+	* creer un nouveau dataframe à partir des indices de lignes donnés en arguments
+	* @param args un ou plusieurs indice de ligne
+	* @return nouveau dataframe avec les lignes choisies
+	*/
 	public Dataframe selectLignes(int...args) {
 		 Object[][] liste  = new Object[args.length+1][tab.length];
 		 Object[][] liste2  = new Object[tab.length][args.length+1];
@@ -91,7 +121,11 @@ public class Dataframe{
 	        Dataframe select = new Dataframe(liste2);
 	        return select;  
     }
-	//creer un nouveau dataframe à partir des indices de colonnes donnés en arguments
+	/**
+	 * creer un nouveau dataframe à partir des indices de colonnes donnés en arguments
+	 * @param args un ou plusieurs indice de colonne
+	 * @return nouveau dataframe avec les colonnes choisies
+	 **/
 	public Dataframe selectColonne(int...args) {
         Object[][] liste  = new Object[args.length][tab[0].length];
         for (int i =0;i<args.length;i++) {
@@ -101,7 +135,11 @@ public class Dataframe{
         return select;
     }
 	
-	// creer un nouveau dataframe à partir des labels de colonnes donnés en arguments
+	/**
+	 * creer un nouveau dataframe à partir des labels de colonnes 
+	 * @param args une ou plusieurs string correspondant au label des colonnes
+	 * @return nouveau dataframe avec les colonnes choisies
+	 */
 	public Dataframe select_colonne_label(String...args) {
 		 int[] indexes = new int[args.length];
 		    int idx = 0;
@@ -123,7 +161,11 @@ public class Dataframe{
 		    	return null;
 		    }
     }
-	// retourne la ligne i
+	/**
+	 * retourne la ligne i
+	 * @param i indice de la ligne la ligne 0 correspond au label
+	 * @return Object[] contenant la ligne
+	 */
 	public Object[] getLigne(int i) {
         Object[] ligne = new Object[tab.length];
         for (int j = 0;j<tab.length;j++) {
@@ -131,7 +173,11 @@ public class Dataframe{
         }
         return ligne;
     }
-	// retourne la colonne i
+	/**
+	 * retourne la colonne i
+	 * @param i indice de la colonne
+	 * @return Object[] contenant la colonne
+	 */
 	public Object[] getColonne(int i) {
 		return tab[i];
 	}	
