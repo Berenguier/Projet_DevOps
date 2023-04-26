@@ -4,9 +4,14 @@
 Notre documentation est disponible <a href="https://berenguier.github.io/Projet_DevOps/" pattern="_blank">ici</a>
 
 # Outils
-on a utilise Maven pour facilite la gestion des dépendances de leur projet, automatiser les tâches de construction, générer des rapports, et assurer la portabilité du projet.
-on a utilise JUnit pour fournir un environnement de test qui facilite l'écriture et l'exécution de tests de manière automatisée. Les tests unitaires permettent de vérifier que chaque partie du code fonctionne comme prévu, ce qui permet de réduire les bugs et d'améliorer la qualité du code.
-on a utilise GitHub comme plateform de versioning.
+
+Nous avous utilisé: - Maven pour facilite la gestion du projet, automatiser les tests et vérifier la couverture du code.
+                    - JUnit pour fournir un environnement de test qui facilite l'écriture et l'exécution de tests de manière automatisée. Les tests unitaires permettent                       de vérifier que chaque partie du code fonctionne comme prévu, ce qui permet de réduire les bugs et d'améliorer la qualité du code.
+                    - GitHub comme plateforme de depôt, mais aussi github action et github page.
 # Workflow
 
-# Feedback ?
+Nous avons utilisé un workflow en feature : la branche main pour les version stable, la branche dev sur laquelle nous pouvions merge les features
+
+# Feedback
+
+Ce projet est interéssant et permet de mettre en pratique les différents outils vu durant le semestre.
